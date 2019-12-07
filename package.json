@@ -1,0 +1,11 @@
+{
+	"name": "RealTimeWebChat",
+	"version": "0.0.0",
+	"description": "Uspeak Real Time Chat Server",
+	"dependencies": {
+		"socket.io": "latest",
+		"express": "latest",
+		"jade": "latest"
+	},
+	"author": "developer"
+}
