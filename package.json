@@ -2,17 +2,19 @@
 	"name": "RealTimeWebChat",
 	"version": "0.0.0",
 	"description": "Real Time Chat Server",
-
 	"dependencies": {
+		"react": "^16.0.0",
+		"react-dom": "^16.0.0",
+		"react-scripts": "1.0.14",
 		"socket.io": "latest",
 		"express": "latest",
 		"jade": "latest"
 	},
 	"scripts": {
-    		"start": "react-scripts start",
-    		"build": "react-scripts build",
+		"start": "react-scripts start",
+		"build": "react-scripts build",
 		"test": "cross-env CI=true react-scripts test --env=jsdom",
 		"eject": "react-scripts eject"
-  	},
+	},
 	"author": "developer"
 }
