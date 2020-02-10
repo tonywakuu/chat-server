@@ -11,10 +11,19 @@
 		"jade": "latest"
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "cross-env CI=true react-scripts test --env=jsdom",
-		"eject": "react-scripts eject"
+		"start": "node index.js",
+		"dry-run": "node-lambda run",
+		"deploy": "node-lambda deploy --configFile deploy.env",
+		"setup": "node-lambda setup",
+		"package": "node-lambda package",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint .",
+		"pretest": "npm run lint --silent"
 	},
-	"author": "developer"
+	"author": "developer",
+	"devDependencies": {
+		"aws-sdk": "^2.614.0",
+		"node-lambda": "^0.14.0",
+		"serverless-plugin-simulate": "0.0.17"
+	}
 }

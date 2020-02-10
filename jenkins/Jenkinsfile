@@ -4,11 +4,21 @@ pipeline {
             image 'node:6-alpine'
             args '-p 3000:3000'
         }
+        kubernetes {
+            label 'my-app'
+            yamlFile 'JenkinsKubernetesPod.yaml'
+        }
     }
     environment {
         CI = 'true' 
     }
     stages {
+        stage('Run') {
+            steps {
+              echo 'running....'
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'npm install'
@@ -19,5 +29,23 @@ pipeline {
                 sh './jenkins/scripts/test.sh' 
             }
         }
+        stage('Docker Publish') {
+            steps {
+              // Publish a docker image for your application 
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                  container('helm') {
+                      // Init authentication and config for your kubernetes cluster
+                      sh("helm init --client-only --skip-refresh")
+                      sh("helm upgrade --install --wait prod-my-app ./helm --namespace prod")
+                    }
+                }
+            }
+        }
     }
 }
+

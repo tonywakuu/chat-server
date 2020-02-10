@@ -1,0 +1,26 @@
+query NestedQueryObjects {
+    member {
+        id
+    }
+    product {
+        totalCost
+    }
+}
+
+mutation NestedMutationObjects {
+    member {
+        addToWishLish(input: {Id: 667}) {
+            id
+        }
+    }
+    product {
+        removeProduct(input: {Id: 1213}) {
+            id
+        }
+    }
+    admin {
+        deleteUser(input: {Id: 73893}) {
+            id
+        }
+    }
+}

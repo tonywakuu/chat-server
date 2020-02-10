@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-dp
+spec:
+  replicas: 2
+  minReadySeconds: 60
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app.name }}
+    spec:
+      containers:
+      - name: {{ .Values.app.name }}
+        image: {{ .Values.app.image.repository }}/{{ .Values.app.image.name }}:{{ .Values.app.image.tag }}
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: config-{{ .Values.app.name }}
+        ports:
+        - name: http-{{ .Values.app.name }}
+          protocol: TCP
+          containerPort: 80

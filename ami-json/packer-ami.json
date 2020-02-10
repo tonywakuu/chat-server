@@ -1,0 +1,28 @@
+{
+ "builders": [{
+    "type": "amazon-ebs",
+    "region": "eu-west-1",
+    "source_ami": "ami-844e0bf7",
+    "instance_type": "t2.micro",
+    "ssh_username": "ubuntu",
+    "ami_name": "api-instance {{timestamp}}"
+  }],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": ["mkdir api", "sudo apt-get update", "sudo apt-get -y install npm nodejs-legacy"],
+      "pause_before": "10s"
+    },
+    {
+      "type": "file",
+      "source" : "../api/",
+      "destination" : "api"
+    },
+
+    {
+    "type": "shell",
+    "inline": ["cd api", "npm install"],
+    "pause_before": "10s"
+    }
+  ]
+}
