@@ -1,28 +1,28 @@
 pipeline {
     agent any
     stages {
-        stage(‘checkout’) {
+        stage('checkout') {
             steps {
-            git branch: ‘develop’, url: ‘github.com/tonywakuu/’
+            git branch: 'develop', url: 'git@github.com:tonywakuu/'
         }
     }
-        stage(‘Set Terraform path’) {
+        stage('Set Terraform path') {
             steps {
                 script {
-                    def tfHome = tool name: ‘Terraform’
-                    env.PATH = “${tfHome}:${env.PATH}”
+                    def tfHome = tool name: 'Terraform'
+                    env.PATH = "${tfHome}:${env.PATH}"
                 }
-                sh ‘terraform — version’
+                sh 'terraform — version'
             }
         }
 
-        stage(‘Provision infrastructure’) {
+        stage('Provision infrastructure') {
             steps {
-                dir(‘dev’) {
-                    sh ‘terraform init’
-                    sh ‘terraform plan -out=plan’
-                    // sh ‘terraform destroy -auto-approve’
-                    sh ‘terraform apply plan’
+                dir('dev') {
+                    sh 'terraform init'
+                    sh 'terraform plan -out=plan'
+                    // sh 'terraform destroy -auto-approve'
+                    sh 'terraform apply plan'
                 }
             }
         }
