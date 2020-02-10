@@ -1,29 +1,29 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:6-alpine'
-            args '-p 3000:3000'
+    agent any
+    stages {
+        stage(‘checkout’) {
+            steps {
+            git branch: ‘develop’, url: ‘git@github.com/tonywakuu’
         }
     }
-    environment { 
-        CI = 'true'
-    }
-    stages {
-        stage('Build') {
+        stage(‘Set Terraform path’) {
             steps {
-                sh 'npm install'
+                script {
+                    def tfHome = tool name: ‘Terraform’
+                    env.PATH = “${tfHome}:${env.PATH}”
+                }
+                sh ‘terraform — version’
             }
         }
-        // stage('Test') {
-        //     steps {
-        //         sh './jenkins/scripts/test.sh'
-        //     }
-        // }
-        stage('Deliver') { 
+
+        stage(‘Provision infrastructure’) {
             steps {
-                sh './jenkins/scripts/deliver.sh' 
-                input message: 'Finished using the web site? (Click "Proceed" to continue)' 
-                sh './jenkins/scripts/kill.sh' 
+                dir(‘dev’) {
+                    sh ‘terraform init’
+                    sh ‘terraform plan -out=plan’
+                    // sh ‘terraform destroy -auto-approve’
+                    sh ‘terraform apply plan’
+                }
             }
         }
     }
