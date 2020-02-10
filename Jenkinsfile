@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-            git branch: 'develop', url: 'git@github.com:tonywakuu/'
+            git branch: 'develop', url: 'git@github.com:tonywakuu/chat-server.git'
         }
     }
         stage('Set Terraform path') {
