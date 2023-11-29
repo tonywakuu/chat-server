@@ -1,5 +1,5 @@
 
-![Server Diagram]([/repository/assets/employee.png?raw=true](https://wakuuenterprises.com/wp-content/uploads/2023/11/mail.jpeg) "Chat Server Diagram")
+([/repository/assets/employee.png?raw=true](https://wakuuenterprises.com/wp-content/uploads/2023/11/mail.jpeg) "Chat Server Diagram")
 
 # chat-server
 Built with nodejs &amp; socket.io
