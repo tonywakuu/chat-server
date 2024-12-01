@@ -22,7 +22,7 @@
 	},
 	"author": "developer",
 	"devDependencies": {
-		"aws-sdk": "^2.614.0",
+		"aws-sdk": "^2.814.0",
 		"node-lambda": "^0.14.0",
 		"serverless-plugin-simulate": "0.0.17"
 	}
