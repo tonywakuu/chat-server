@@ -1,4 +1,4 @@
-![Server Diagram](https://wakuuenterprises.com/wp-content/uploads/2023/11/mail.jpeg?raw=true "Chat Server Diagram")
+![Server Diagram](https://drive.google.com/file/d/1K4HKwJ6CU-n6l6hRKIaej_ID9TyQPOAz/view?usp=sharing)
 
 # chat-server
 Built with nodejs &amp; socket.io
