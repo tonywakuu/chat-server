@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ![Server Diagram](https://drive.google.com/file/d/1pBQXnviS7I9eUmC4Un1zVFyjn1FliSFZ/view?usp=sharing)
+=======
+![Server Diagram](https://wakuuenterprises.com/wp-content/uploads/2023/11/mail.jpeg?raw=true "Chat Server Diagram")
+>>>>>>> parent of 39f3afbb (Update README.md)
 
 # chat-server
 Built with nodejs &amp; socket.io
