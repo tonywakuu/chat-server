@@ -1,4 +1,4 @@
-![Server Diagram](https://drive.google.com/file/d/1K4HKwJ6CU-n6l6hRKIaej_ID9TyQPOAz/view?usp=sharing)
+![Server Diagram](https://red-snow-b523.any-589.workers.dev)
 
 # chat-server
 Built with nodejs &amp; socket.io
