@@ -1,4 +1,4 @@
-![Server Diagram]([/repository/assets/employee.png?raw=true](https://wakuuenterprises.com/wp-content/uploads/2023/11/mail.jpeg?raw=true) "Chat Server Diagram")
+![Server Diagram](https://red-snow-b523.any-589.workers.dev)
 
 # chat-server
 Built with nodejs &amp; socket.io
